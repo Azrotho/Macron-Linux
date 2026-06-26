@@ -8,13 +8,13 @@
 
 ## 🎉 Fonctionnalités
 
-- **KDE Plasma** avec thème France personnalisé (bleu, blanc, rouge)
+- **Cinnamon Desktop** avec personnalisation MacronLinux
 - **Fond d'écran et sons intégrés** :
-  - `Emmanuel_Macron_dark.jpg` — Fond d'écran par défaut du bureau et du SDDM
+  - `Emmanuel_Macron_dark.jpg` — Fond d'écran par défaut du bureau
   - `boot_sound.mp3` — Son de démarrage (connexion)
   - `error_sound.mp3` — Son pour les erreurs système
-  - `hey-hey-hey-macron.mp3` — Son pour les notifications KDE
-- **Mistral Vibe** — Installation automatique au premier démarrage (avec réseau)
+  - `hey-hey-hey-macron.mp3` — Son pour les notifications
+- **Mistral Vibe** — Installation manuelle via la commande `install-mistral-vibe`
 - **Branding MacronLinux** — `os-release`, hostname, MOTD, neofetch remplacé par `fastfetch`
 - **Deux versions** : standard (tous GPU) et NVIDIA (pilotes open-source `nvidia-open`)
 - **Clavier AZERTY** et **locale française** préconfigurés
@@ -44,7 +44,7 @@ sudo dd if=macronlinux-standard.iso of=/dev/sdX bs=4M status=progress conv=fsync
 
 ### 3. Démarrer et installer
 
-Démarrez sur la clé USB. **Mistral Vibe** s'installera automatiquement au premier démarrage dès qu'une connexion réseau est disponible.
+Démarrez sur la clé USB. Le système démarrera directement sur le bureau Cinnamon. Pour installer **Mistral Vibe**, ouvrez un terminal et lancez la commande : `install-mistral-vibe`.
 
 ---
 
@@ -70,7 +70,7 @@ make test-standard
 
 ## ⚙️ Configuration
 
-- **Thème France** — Personnalisable dans Paramètres système KDE → Couleurs
+- **Thème France** — Personnalisable dans les Paramètres système Cinnamon
 - **Fond d'écran** — Configurable dans `/usr/share/wallpapers/macronlinux/`
 - **Sons** — Configurables dans `/usr/share/sounds/macronlinux/`
 - **Mistral Vibe** — Logs disponibles dans `/var/log/mistral-vibe-install.log`

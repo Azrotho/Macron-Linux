@@ -23,6 +23,10 @@ dhcpcd
 xorg-server
 xorg-xinit
 xorg-xrandr
+mesa
+xf86-video-vesa
+xf86-video-fbdev
+xf86-video-vmware
 
 # --- Cinnamon Desktop + SDDM ---
 cinnamon

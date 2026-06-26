@@ -12,6 +12,6 @@ cat /etc/motd 2>/dev/null || true
 fastfetch 2>/dev/null || true
 
 echo ""
-echo "  KDE Plasma démarre via SDDM — bonne session ! 🇫🇷"
-echo "  (Mistral Vibe s'installera automatiquement avec le réseau)"
+echo "  Cinnamon démarre via SDDM — bonne session ! 🇫🇷"
+echo "  (Pour installer Mistral Vibe, lancez : install-mistral-vibe)"
 echo ""

@@ -47,30 +47,21 @@ echo "root:macron" | chpasswd
 # ---------------------------------------------------------------
 systemctl enable NetworkManager.service
 systemctl enable sddm.service
-systemctl enable mistral-vibe-install.service
 
 # ---------------------------------------------------------------
-# 5. Configuration SDDM (login avec fond Macron)
+# 5. Configuration SDDM (autologin sur Cinnamon)
 # ---------------------------------------------------------------
 mkdir -p /etc/sddm.conf.d
 cat > /etc/sddm.conf.d/macronlinux.conf << 'EOF'
 [Theme]
-Current=breeze
+Current=
 
 [Autologin]
-# Pas d'autologin en mode live pour la sécurité
-User=
-Session=
+User=macron
+Session=cinnamon
 
 [General]
 InputMethod=
-EOF
-
-# Configurer le fond d'écran SDDM via KDE settings
-mkdir -p /usr/share/sddm/themes/breeze
-cat > /usr/share/sddm/themes/breeze/theme.conf.user << 'EOF'
-[General]
-background=/usr/share/wallpapers/macronlinux/Emmanuel_Macron_dark.jpg
 EOF
 
 # ---------------------------------------------------------------
@@ -164,8 +155,8 @@ cat > /etc/motd << 'EOF'
   Distribution parodique basée sur Arch Linux
   Créée par Mistral pour la grandeur de la France.
 
-  • Mistral Vibe s'installera automatiquement au 1er démarrage
-  • KDE Plasma avec thème France (bleu, blanc, rouge)
+  • Lancez la commande 'install-mistral-vibe' pour installer Mistral Vibe
+  • Cinnamon Desktop avec personnalisation MacronLinux
   • https://github.com/azrotho/Macron-Linux
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
