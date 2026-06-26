@@ -107,7 +107,15 @@ cat > /etc/fastfetch/config.jsonc << 'EOF'
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "none"
+    "source": "/etc/fastfetch/macronlinux.txt",
+    "color": {
+      "1": "34",
+      "2": "97",
+      "3": "31"
+    },
+    "padding": {
+      "right": 2
+    }
   },
   "display": {
     "separator": " → ",
