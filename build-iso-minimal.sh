@@ -7,14 +7,18 @@ set -euo pipefail
 
 # ── Paramètres ──────────────────────────────────────────────────
 
-if [ "$#" -ne 1 ] || [[ "$1" != "standard" && "$1" != "nvidia" ]]; then
-    echo "Usage: $0 [standard|nvidia]"
+if [ "$#" -ne 1 ] || [[ "$1" != "standard" && "$1" != "nvidia" && "$1" != "server" ]]; then
+    echo "Usage: $0 [standard|nvidia|server]"
     exit 1
 fi
 
 TYPE="$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROFILE_DIR="$SCRIPT_DIR/archiso/profiles/macronlinux"
+if [ "$TYPE" = "server" ]; then
+    PROFILE_DIR="$SCRIPT_DIR/archiso/profiles/macronlinux-server"
+else
+    PROFILE_DIR="$SCRIPT_DIR/archiso/profiles/macronlinux"
+fi
 WORK_DIR="$SCRIPT_DIR/archiso/work/$TYPE"
 OUTPUT_DIR="$SCRIPT_DIR/output"
 

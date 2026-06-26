@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=MacronLinux Theme
+Comment=Thème France — Bleu, Blanc, Rouge — En mARCH!
+Type=Service
+X-KDE-ServiceTypes=Plasma/Theme
+X-KDE-PluginInfo-Name=macronlinux
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Author=MacronLinux
+X-KDE-PluginInfo-Email=https://github.com/azrotho/Macron-Linux
+X-KDE-PluginInfo-Website=https://github.com/azrotho/Macron-Linux
+X-KDE-PluginInfo-License=MIT

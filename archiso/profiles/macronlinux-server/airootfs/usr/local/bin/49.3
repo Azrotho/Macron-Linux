@@ -1,0 +1,27 @@
+#!/bin/bash
+# 49.3 — Le passage en force constitutionnel de MacronLinux 🇫🇷
+
+if [ "$#" -eq 0 ]; then
+    echo "Usage: 49.3 <commande>"
+    echo "Exemple: 49.3 pacman -Syu"
+    exit 1
+fi
+
+echo -e "\e[1;34m[49.3]\e[0m \e[1mEngagement de la responsabilité du Gouvernement sur la commande : \e[31m$*\e[0m"
+echo -e "\e[1;34m[49.3]\e[0m Passage en force en cours (sans vote des utilisateurs)..."
+echo ""
+
+# Exécuter la commande avec sudo
+set +e
+sudo "$@"
+RC=$?
+set -e
+
+echo ""
+if [ $RC -eq 0 ]; then
+    echo -e "\e[1;32m[49.3] ✅ La commande est passée en force avec succès ! La motion de censure a été rejetée. Vive la République ! 🇫🇷\e[0m"
+else
+    echo -e "\e[1;31m[49.3] ❌ La commande a échoué (code de retour $RC). La motion de censure n'est pas passée, mais c'est quand même de la poudre de perlimpinpin.\e[0m"
+fi
+
+exit $RC

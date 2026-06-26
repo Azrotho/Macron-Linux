@@ -1,0 +1,33 @@
+# === MacronLinux — packages.x86_64 (version standard) ===
+
+# --- Base système ---
+base
+linux
+linux-firmware
+mkinitcpio-archiso
+syslinux
+grub
+efibootmgr
+sudo
+
+# --- Microcodes CPU ---
+intel-ucode
+amd-ucode
+
+# --- Réseau ---
+networkmanager
+dhcpcd
+openssh
+
+# --- Outils système ---
+fastfetch
+curl
+wget
+git
+nano
+vim
+bash-completion
+htop
+unzip
+zip
+

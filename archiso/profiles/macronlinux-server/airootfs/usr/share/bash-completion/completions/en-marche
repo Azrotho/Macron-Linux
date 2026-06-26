@@ -1,0 +1,28 @@
+# en-marche bash completion 🇫🇷
+
+_en_marche() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="installer supprimer rechercher moderniser"
+
+    if [[ ${COMP_CWORD} -eq 1 ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+
+    case "${prev}" in
+        installer)
+            if [[ ${#cur} -ge 2 ]]; then
+                COMPREPLY=( $(compgen -W "$(pacman -Ssq "^${cur}" | head -n 50)" -- ${cur}) )
+            fi
+            return 0
+            ;;
+        supprimer)
+            COMPREPLY=( $(compgen -W "$(pacman -Qq)" -- ${cur}) )
+            return 0
+            ;;
+    esac
+}
+complete -F _en_marche en-marche

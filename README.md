@@ -19,7 +19,7 @@
 - **Commandes parodiques intégrées** : `49.3` (passage en force root), `en-marche` (wrapper pacman Start-up Nation), et retours d'erreurs interactifs (citations cultes).
 - **Autocomplétion (Tab-completion)** complète pour toutes les commandes personnalisées.
 - **Branding MacronLinux** — `os-release`, hostname, MOTD, neofetch remplacé par `fastfetch`.
-- **Deux versions** : standard (tous GPU) et NVIDIA (pilotes open-source `nvidia-open`).
+- **Trois versions** : standard (tous GPU), NVIDIA (pilotes open-source `nvidia-open`) et **Server Edition** (headless, ultra-légère avec serveur SSH actif).
 - **Clavier AZERTY** et **locale française** préconfigurés.
 - **Fuseau horaire** Europe/Paris par défaut.
 
@@ -65,8 +65,14 @@ make build-standard
 # Construire l'ISO NVIDIA
 make build-nvidia
 
-# Tester avec QEMU (KVM requis)
+# Construire l'ISO Server (sans environnement graphique, avec SSH)
+make build-server
+
+# Tester la version standard avec QEMU (KVM requis)
 make test-standard
+
+# Tester la version serveur dans le terminal (QEMU nographic)
+make test-server
 ```
 
 ---

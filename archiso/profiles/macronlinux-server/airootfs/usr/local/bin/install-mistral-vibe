@@ -1,0 +1,42 @@
+#!/bin/bash
+# install-mistral-vibe — Installation de Mistral Vibe pour MacronLinux
+# En mARCH! 🇫🇷
+
+set -euo pipefail
+
+# S'assurer que le script s'exécute avec les privilèges root pour créer les liens symboliques et écrire les logs.
+# Si lancé en tant qu'utilisateur normal, on relance automatiquement avec sudo.
+if [ "$EUID" -ne 0 ]; then
+    echo "Ce script nécessite des privilèges d'administrateur."
+    echo "Relance en utilisant sudo..."
+    exec sudo "$0" "$@"
+fi
+
+LOG_FILE="/var/log/mistral-vibe-install.log"
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
+}
+
+log "=== MacronLinux — Installation de Mistral Vibe ==="
+log "Pour la grandeur de la France 🇫🇷"
+
+# Vérifier la connexion réseau
+if ! ping -c 1 -W 5 mistral.ai &>/dev/null; then
+    log "ERREUR : Pas de connexion réseau. Veuillez vous connecter à Internet et réessayer."
+    exit 1
+fi
+
+log "Connexion réseau OK. Téléchargement de Mistral Vibe..."
+
+# Installer Mistral Vibe pour l'utilisateur macron
+log "Exécution de l'installateur sous l'utilisateur macron..."
+if sudo -u macron -i curl -LsSf https://mistral.ai/vibe/install.sh | sudo -u macron -i bash >> "$LOG_FILE" 2>&1; then
+    log "Création des liens symboliques pour l'accès global à la commande vibe..."
+    ln -sf /home/macron/.local/bin/vibe /usr/local/bin/vibe
+    ln -sf /home/macron/.local/bin/vibe-acp /usr/local/bin/vibe-acp
+    log "✅ Mistral Vibe installé avec succès !"
+    echo "Vous pouvez maintenant lancer la commande 'vibe' !"
+else
+    log "ERREUR : L'installation de Mistral Vibe a échoué. Voir $LOG_FILE"
+    exit 1
+fi

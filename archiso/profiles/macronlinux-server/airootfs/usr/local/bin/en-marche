@@ -1,0 +1,59 @@
+#!/bin/bash
+# en-marche — Le gestionnaire de paquets disruptif de la Start-up Nation 🇫🇷
+
+set -euo pipefail
+
+show_help() {
+    echo -e "\e[1;34m=== en-marche — Gestionnaire de paquets de la Start-up Nation ===\e[0m"
+    echo "Usage:"
+    echo "  en-marche installer <paquet>   - Intégrer un actif technologique (pacman -S)"
+    echo "  en-marche supprimer <paquet>   - Restructurer/licencier un paquet (pacman -Rns)"
+    echo "  en-marche rechercher <terme>   - Sourcer des innovations sur le marché (pacman -Ss)"
+    echo "  en-marche moderniser           - Lancer la grande réforme du système (pacman -Syu)"
+    echo ""
+    echo "Exemple : en-marche installer fastfetch"
+}
+
+if [ "$#" -eq 0 ]; then
+    show_help
+    exit 1
+fi
+
+CMD="$1"
+shift
+
+case "$CMD" in
+    installer)
+        if [ "$#" -eq 0 ]; then
+            echo "Erreur : Spécifiez un actif technologique à installer."
+            exit 1
+        fi
+        echo -e "\e[1;34m[en-marche]\e[0m Négociation sur le marché des paquets pour installer $*..."
+        sudo pacman -S "$@"
+        ;;
+    supprimer)
+        if [ "$#" -eq 0 ]; then
+            echo "Erreur : Spécifiez le paquet à restructurer."
+            exit 1
+        fi
+        echo -e "\e[1;31m[en-marche]\e[0m Restructuration en cours de $* (rupture conventionnelle)..."
+        sudo pacman -Rns "$@"
+        ;;
+    rechercher)
+        if [ "$#" -eq 0 ]; then
+            echo "Erreur : Spécifiez un terme à rechercher."
+            exit 1
+        fi
+        echo -e "\e[1;34m[en-marche]\e[0m Sourcing d'actifs technologiques correspondant à '$*'..."
+        pacman -Ss "$@"
+        ;;
+    moderniser)
+        echo -e "\e[1;32m[en-marche]\e[0m Lancement de la grande réforme structurelle du système..."
+        sudo pacman -Syu
+        ;;
+    *)
+        echo -e "Commande disruptive inconnue : $CMD"
+        show_help
+        exit 1
+        ;;
+esac
