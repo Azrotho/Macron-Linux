@@ -77,6 +77,54 @@ make test-server
 
 ---
 
+## 🌐 Démarrage par le réseau (Netboot / iPXE) local
+
+MacronLinux intègre un système de démarrage par le réseau (Netboot/iPXE) entièrement local pour les versions **standard** et **serveur**.
+
+Les fichiers compilés pour le netboot sont générés dans le sous-dossier `output/netboot/` qui est configuré dans le `.gitignore` et ne sera pas poussé sur votre dépôt distant.
+
+### 1. Compiler et démarrer le serveur local en une commande
+
+Pour compiler les fichiers nécessaires et démarrer le serveur HTTP de distribution local, lancez simplement :
+
+```bash
+make netboot
+```
+
+Cette commande va :
+1. Compiler la version Standard en mode netboot (génère `output/netboot/standard/`).
+2. Compiler la version Serveur en mode netboot (génère `output/netboot/server/`).
+3. Démarrer un serveur HTTP Python local sur le port `8000` servant ces répertoires.
+
+### 2. Démarrer une machine cliente
+
+#### Méthode 1 : Démarrage direct (Interactif)
+1. Au démarrage de votre client PXE ou de **netboot.xyz**, ouvrez la console iPXE (touche **`Ctrl+B`**).
+2. Activez la configuration réseau et chargez le script d'installation interactif depuis notre dépôt GitHub :
+   ```ipxe
+   dhcp
+   
+   # Pour la version Standard (Cinnamon)
+   chain https://raw.githubusercontent.com/azrotho/Macron-Linux/main/netboot/macronlinux-standard.ipxe
+   
+   # Pour la version Serveur (Headless)
+   chain https://raw.githubusercontent.com/azrotho/Macron-Linux/main/netboot/macronlinux-server.ipxe
+   ```
+3. Le script interactif vous demandera de saisir l'adresse IP de votre machine locale (le serveur HTTP lancé à l'étape 1) et lancera le téléchargement du système.
+
+#### Méthode 2 : Chainloading local direct (Automatique)
+Si vous ne voulez pas saisir l'adresse IP manuellement, vous pouvez charger directement le script pré-configuré généré localement dans votre dossier de build :
+```ipxe
+dhcp
+# Pour la version Standard
+chain http://<ip-de-votre-machine-locale>:8000/standard/macronlinux-standard.ipxe
+
+# Pour la version Serveur
+chain http://<ip-de-votre-machine-locale>:8000/server/macronlinux-server.ipxe
+```
+
+---
+
 ## ⚙️ Configuration
 
 - **Thème France** — Personnalisable dans les Paramètres système Cinnamon
@@ -153,6 +201,9 @@ Macron-Linux/
 ├── .github/workflows/build.yml     # CI/CD GitHub Actions
 ├── build-iso-minimal.sh            # Script de build principal
 ├── Makefile                        # Cibles make build/test/clean
+├── netboot/                        # Scripts iPXE génériques pour le démarrage réseau
+│   ├── macronlinux-standard.ipxe
+│   └── macronlinux-server.ipxe
 └── plan/                           # Documentation de conception
 ```
 

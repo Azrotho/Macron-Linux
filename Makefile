@@ -28,8 +28,29 @@ build-server:
 	@echo "==> Building MacronLinux Server ISO..."
 	sudo ./build-iso-minimal.sh server
 
+## Construire la version standard netboot/iPXE
+build-netboot-standard:
+	@echo "==> Building MacronLinux Standard Netboot/iPXE..."
+	sudo ./build-iso-minimal.sh standard netboot
+
+## Construire la version serveur netboot/iPXE
+build-netboot-server:
+	@echo "==> Building MacronLinux Server Netboot/iPXE..."
+	sudo ./build-iso-minimal.sh server netboot
+
+## Construire toutes les versions Netboot/iPXE
+build-netboot: build-netboot-standard build-netboot-server
+
+## Démarrer le serveur HTTP local pour servir les fichiers Netboot/iPXE
+netboot: build-netboot
+	@echo "==> Démarrage du serveur HTTP local sur le port 8000..."
+	@echo "==> Standard : http://localhost:8000/standard/macronlinux-standard.ipxe"
+	@echo "==> Serveur  : http://localhost:8000/server/macronlinux-server.ipxe"
+	@echo "==> (Appuyez sur Ctrl+C pour arrêter le serveur)"
+	python -m http.server --directory $(OUTPUT_DIR)/netboot 8000
+
 ## Construire toutes les versions
-build: build-standard build-nvidia build-server
+build: build-standard build-nvidia build-server build-netboot
 
 # ── Targets de test ─────────────────────────────────────────────
 
@@ -65,5 +86,6 @@ clean-all: clean
 all: build
 
 .PHONY: build build-standard build-nvidia build-server \
+        build-netboot build-netboot-standard build-netboot-server netboot \
         test-standard test-nvidia test-server \
         clean clean-all all

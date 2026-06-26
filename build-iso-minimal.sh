@@ -7,20 +7,31 @@ set -euo pipefail
 
 # ── Paramètres ──────────────────────────────────────────────────
 
-if [ "$#" -ne 1 ] || [[ "$1" != "standard" && "$1" != "nvidia" && "$1" != "server" ]]; then
-    echo "Usage: $0 [standard|nvidia|server]"
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || [[ "$1" != "standard" && "$1" != "nvidia" && "$1" != "server" ]] || ( [ "$#" -eq 2 ] && [[ "$2" != "iso" && "$2" != "netboot" ]] ); then
+    echo "Usage: $0 [standard|nvidia|server] [iso|netboot]"
     exit 1
 fi
 
 TYPE="$1"
+MODE="${2:-iso}"
+
+if [ "$MODE" = "netboot" ] && [ "$TYPE" = "nvidia" ]; then
+    echo "Error: netboot mode is not supported for NVIDIA version."
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [ "$TYPE" = "server" ]; then
     PROFILE_DIR="$SCRIPT_DIR/archiso/profiles/macronlinux-server"
 else
     PROFILE_DIR="$SCRIPT_DIR/archiso/profiles/macronlinux"
 fi
-WORK_DIR="$SCRIPT_DIR/archiso/work/$TYPE"
-OUTPUT_DIR="$SCRIPT_DIR/output"
+WORK_DIR="$SCRIPT_DIR/archiso/work/${TYPE}-${MODE}"
+if [ "$MODE" = "netboot" ]; then
+    OUTPUT_DIR="$SCRIPT_DIR/output/netboot/$TYPE"
+else
+    OUTPUT_DIR="$SCRIPT_DIR/output"
+fi
 
 # ── Préparation ─────────────────────────────────────────────────
 
@@ -47,34 +58,69 @@ trap cleanup EXIT INT TERM
 
 # ── Build ────────────────────────────────────────────────────────
 
-echo "==> MacronLinux — Build ISO ($TYPE)"
+echo "==> MacronLinux — Build ($TYPE — $MODE)"
 echo "    Profil   : $PROFILE_DIR"
 echo "    Workdir  : $WORK_DIR"
 echo "    Output   : $OUTPUT_DIR"
 echo ""
 
-mkarchiso -v -w "$WORK_DIR" -o "$OUTPUT_DIR" "$PROFILE_DIR"
+mkarchiso -v -w "$WORK_DIR" -o "$OUTPUT_DIR" -m "$MODE" "$PROFILE_DIR"
 
-# ── Renommage ────────────────────────────────────────────────────
+# ── Post-processing & Vérification ───────────────────────────────
 
-ISO_NAME="macronlinux-${TYPE}.iso"
+if [ "$MODE" = "iso" ]; then
+    ISO_NAME="macronlinux-${TYPE}.iso"
 
-# mkarchiso génère : macronlinux-YYYY.MM.DD-x86_64.iso
-BUILT_ISO=$(ls -t "$OUTPUT_DIR"/macronlinux-*.iso 2>/dev/null | grep -v "macronlinux-standard\|macronlinux-nvidia" | head -1 || true)
+    # mkarchiso génère : macronlinux-YYYY.MM.DD-x86_64.iso
+    BUILT_ISO=$(ls -t "$OUTPUT_DIR"/macronlinux-*.iso 2>/dev/null | grep -Ev "macronlinux-(standard|nvidia|server)\.iso" | head -1 || true)
 
-if [ -n "$BUILT_ISO" ]; then
-    mv "$BUILT_ISO" "$OUTPUT_DIR/$ISO_NAME"
-fi
+    if [ -n "$BUILT_ISO" ]; then
+        mv "$BUILT_ISO" "$OUTPUT_DIR/$ISO_NAME"
+    fi
 
-# ── Vérification ─────────────────────────────────────────────────
-
-if [ -f "$OUTPUT_DIR/$ISO_NAME" ]; then
-    echo ""
-    echo "==> ✅ ISO construite avec succès !"
-    ls -lh "$OUTPUT_DIR/$ISO_NAME"
+    if [ -f "$OUTPUT_DIR/$ISO_NAME" ]; then
+        echo ""
+        echo "==> ✅ ISO construite avec succès !"
+        ls -lh "$OUTPUT_DIR/$ISO_NAME"
+    else
+        echo ""
+        echo "==> ❌ Échec de la construction ISO. Contenu de $OUTPUT_DIR :"
+        ls -la "$OUTPUT_DIR/" || true
+        exit 1
+    fi
 else
-    echo ""
-    echo "==> ❌ Échec de la construction. Contenu de $OUTPUT_DIR :"
-    ls -la "$OUTPUT_DIR/" || true
-    exit 1
+    # Mode Netboot
+    if [ -f "$OUTPUT_DIR/arch/boot/x86_64/vmlinuz-linux" ] && \
+       [ -f "$OUTPUT_DIR/arch/boot/x86_64/initramfs-linux.img" ] && \
+       [ -f "$OUTPUT_DIR/arch/x86_64/airootfs.sfs" ]; then
+        
+        # Génération du script iPXE d'exemple
+        echo "==> Génération du script template iPXE..."
+        cat <<EOF > "$OUTPUT_DIR/macronlinux-${TYPE}.ipxe"
+#!ipxe
+
+# IP/Port du serveur HTTP hébergeant ce dossier.
+# Adaptez ces valeurs à votre configuration réseau.
+set server-ip 192.168.1.100
+set server-port 8000
+set base-url http://\${server-ip}:\${server-port}/${TYPE}
+
+echo Démarrage de MacronLinux (${TYPE}) via iPXE...
+kernel \${base-url}/arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archiso_http_srv=\${base-url}/ ip=dhcp
+initrd \${base-url}/arch/boot/x86_64/initramfs-linux.img
+boot
+EOF
+
+        echo ""
+        echo "==> ✅ Fichiers Netboot construits avec succès !"
+        ls -lh "$OUTPUT_DIR/arch/boot/x86_64/vmlinuz-linux"
+        ls -lh "$OUTPUT_DIR/arch/boot/x86_64/initramfs-linux.img"
+        ls -lh "$OUTPUT_DIR/arch/x86_64/airootfs.sfs"
+        ls -lh "$OUTPUT_DIR/macronlinux-${TYPE}.ipxe"
+    else
+        echo ""
+        echo "==> ❌ Échec de la construction Netboot. Contenu de $OUTPUT_DIR :"
+        find "$OUTPUT_DIR" || true
+        exit 1
+    fi
 fi

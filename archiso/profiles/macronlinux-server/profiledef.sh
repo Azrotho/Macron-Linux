@@ -13,8 +13,8 @@ iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 # Répertoire d'installation sur l'ISO (max 8 chars, [a-z0-9])
 install_dir="arch"
 
-# Mode de build : ISO uniquement
-buildmodes=('iso')
+# Modes de build : ISO et netboot
+buildmodes=('iso' 'netboot')
 
 # Modes de boot : BIOS (syslinux) + UEFI (systemd-boot)
 bootmodes=('bios.syslinux'

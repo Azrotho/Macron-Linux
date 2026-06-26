@@ -1,0 +1,22 @@
+#!ipxe
+
+# ==========================================
+# MacronLinux (Standard) - Démarrage iPXE
+# En mARCH! 🇫🇷
+# ==========================================
+
+# Demander l'adresse IP et le port du serveur HTTP local
+echo -n Saisissez l'adresse IP du serveur HTTP local : ${}
+read server-ip
+echo -n Saisissez le port du serveur (défaut: 8000) : ${}
+read server-port
+isset ${server-port} || set server-port 8000
+
+set base-url http://${server-ip}:${server-port}/standard
+
+echo
+echo Connexion à ${base-url}...
+echo Démarrage de MacronLinux (Standard) via iPXE...
+kernel ${base-url}/arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archiso_http_srv=${base-url}/ ip=dhcp
+initrd ${base-url}/arch/boot/x86_64/initramfs-linux.img
+boot
