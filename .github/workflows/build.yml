@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        type: [standard, nvidia]
+        type: [standard, nvidia, server]
 
     steps:
       - name: "Checkout"
@@ -79,6 +79,7 @@ jobs:
             |-------|-------------|
             | `macronlinux-standard.iso` | Version standard (tous GPU) |
             | `macronlinux-nvidia.iso` | Version avec pilotes NVIDIA open-source |
+            | `macronlinux-server.iso` | Version Server Edition (headless, SSH actif) |
 
             Vérifiez l'intégrité avec les fichiers `.sha256` fournis.
 
