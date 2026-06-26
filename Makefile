@@ -73,9 +73,10 @@ test-server: $(ISO_SERVER)
 
 ## Nettoyer les ISOs générées et le répertoire de travail
 clean:
-	@echo "==> Cleaning build artifacts..."
+	@echo "==> Cleaning build mounts and artifacts..."
+	-grep "archiso/work" /proc/mounts | cut -d' ' -f2 | sort -r | uniq | xargs -r sudo umount -l 2>/dev/null || true
 	rm -f $(ISO_STANDARD) $(ISO_NVIDIA) $(ISO_SERVER)
-	rm -rf $(WORK_DIR)/
+	sudo rm -rf $(WORK_DIR)/
 	@echo "==> Done."
 
 ## Nettoyer tout (inclut le dossier output/)
