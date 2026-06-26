@@ -4,7 +4,6 @@
 base
 linux
 linux-firmware
-linux-headers
 mkinitcpio-archiso
 syslinux
 grub
@@ -40,11 +39,9 @@ sddm-kcm
 # --- Applications KDE essentielles ---
 dolphin
 konsole
-kate
 gwenview
 ark
 spectacle
-okular
 kcalc
 partitionmanager
 
@@ -56,12 +53,10 @@ wireplumber
 
 # --- Polices ---
 noto-fonts
-noto-fonts-emoji
 ttf-liberation
 
 # --- Outils système ---
 fastfetch
-ffmpeg
 curl
 wget
 git
@@ -77,3 +72,4 @@ nvidia-open
 nvidia-utils
 nvidia-settings
 libva-nvidia-driver
+

@@ -39,11 +39,9 @@ sddm-kcm
 # --- Applications KDE essentielles ---
 dolphin
 konsole
-kate
 gwenview
 ark
 spectacle
-okular
 kcalc
 partitionmanager
 
@@ -55,12 +53,10 @@ wireplumber
 
 # --- Polices ---
 noto-fonts
-noto-fonts-emoji
 ttf-liberation
 
 # --- Outils système ---
 fastfetch
-ffmpeg
 curl
 wget
 git
@@ -70,3 +66,4 @@ bash-completion
 htop
 unzip
 zip
+
