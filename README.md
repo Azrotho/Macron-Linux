@@ -14,11 +14,14 @@
   - `boot_sound.mp3` — Son de démarrage (connexion)
   - `error_sound.mp3` — Son pour les erreurs système
   - `hey-hey-hey-macron.mp3` — Son pour les notifications
-- **Mistral Vibe** — Installation manuelle via la commande `install-mistral-vibe`
-- **Branding MacronLinux** — `os-release`, hostname, MOTD, neofetch remplacé par `fastfetch`
-- **Deux versions** : standard (tous GPU) et NVIDIA (pilotes open-source `nvidia-open`)
-- **Clavier AZERTY** et **locale française** préconfigurés
-- **Fuseau horaire** Europe/Paris par défaut
+- **Fond d'écran aléatoire au démarrage** (Option A) — Sélection dynamique d'un fond d'écran au boot (extensible).
+- **Mistral Vibe** — Installation manuelle via la commande `install-mistral-vibe`.
+- **Commandes parodiques intégrées** : `49.3` (passage en force root), `en-marche` (wrapper pacman Start-up Nation), et retours d'erreurs interactifs (citations cultes).
+- **Autocomplétion (Tab-completion)** complète pour toutes les commandes personnalisées.
+- **Branding MacronLinux** — `os-release`, hostname, MOTD, neofetch remplacé par `fastfetch`.
+- **Deux versions** : standard (tous GPU) et NVIDIA (pilotes open-source `nvidia-open`).
+- **Clavier AZERTY** et **locale française** préconfigurés.
+- **Fuseau horaire** Europe/Paris par défaut.
 
 ---
 
@@ -74,6 +77,36 @@ make test-standard
 - **Fond d'écran** — Configurable dans `/usr/share/wallpapers/macronlinux/`
 - **Sons** — Configurables dans `/usr/share/sounds/macronlinux/`
 - **Mistral Vibe** — Logs disponibles dans `/var/log/mistral-vibe-install.log`
+
+---
+
+## 🛠️ Commandes Parodiques
+
+MacronLinux intègre des outils système repensés pour la grandeur de la République et de la Start-up Nation :
+
+### 1. `49.3` — Le Passage en Force
+Exécutez n'importe quelle commande en tant qu'administrateur sans demander l'avis du Parlement (ni de l'utilisateur).
+- **Usage** : `49.3 <commande>`
+- **Exemple** : `49.3 pacman -Syu`
+- **Comportement** : Wrappe la commande avec `sudo` et affiche des messages parodiques de passage en force constitutionnel et de rejet de motion de censure.
+
+### 2. `en-marche` — Gestion d'actifs technologiques (Pacman Wrapper)
+Gérez vos paquets avec le vocabulaire de la Start-up Nation et de l'Élysée.
+- **Usage** : `en-marche <action> [options]`
+- **Actions disponibles** :
+  - `installer <paquet>` : Négocie sur le marché des paquets pour installer un actif technologique (`pacman -S`).
+  - `supprimer <paquet>` : Déclenche une rupture conventionnelle pour licencier un paquet (`pacman -Rns`).
+  - `rechercher <terme>` : Source les innovations technologiques sur le marché (`pacman -Ss`).
+  - `moderniser` : Lance la grande réforme structurelle de mise à jour du système (`pacman -Syu`).
+
+### 3. Citations d'erreurs interactives
+Chaque fois qu'une commande échoue dans le terminal (code de sortie non nul), le shell intercepte l'erreur pour afficher de manière aléatoire en rouge une citation culte d'Emmanuel Macron :
+- *« C'est de la poudre de perlimpinpin ! »*
+- *« Parce que c'est notre projeeet !!! »*
+- *« Je traverse la rue et je vous en trouve du travail ! »*
+- *« C'est un pognon de dingue ! »*
+
+*(Note : L'autocomplétion complète via la touche `Tab` est disponible pour l'ensemble de ces commandes).*
 
 ---
 
