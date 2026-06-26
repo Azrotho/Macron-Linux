@@ -1,0 +1,10 @@
+NAME="MacronLinux"
+PRETTY_NAME="MacronLinux"
+ID=macronlinux
+BUILD_ID=rolling
+ANSI_COLOR="0;34"
+HOME_URL="https://github.com/azrotho/Macron-Linux"
+DOCUMENTATION_URL="https://github.com/azrotho/Macron-Linux"
+SUPPORT_URL="https://github.com/azrotho/Macron-Linux"
+BUG_REPORT_URL="https://github.com/azrotho/Macron-Linux/issues"
+LOGO=macronlinux

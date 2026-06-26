@@ -1,0 +1,72 @@
+# === MacronLinux — packages.x86_64 (version standard) ===
+
+# --- Base système ---
+base
+linux
+linux-firmware
+mkinitcpio-archiso
+syslinux
+grub
+efibootmgr
+sudo
+
+# --- Microcodes CPU ---
+intel-ucode
+amd-ucode
+
+# --- Réseau ---
+networkmanager
+network-manager-applet
+dhcpcd
+
+# --- Serveur d'affichage ---
+xorg-server
+xorg-xinit
+xorg-xrandr
+
+# --- KDE Plasma + SDDM ---
+plasma-desktop
+plasma-pa
+plasma-nm
+plasma-systemmonitor
+powerdevil
+kscreen
+bluedevil
+kdeplasma-addons
+sddm
+sddm-kcm
+
+# --- Applications KDE essentielles ---
+dolphin
+konsole
+kate
+gwenview
+ark
+spectacle
+okular
+kcalc
+partitionmanager
+
+# --- Audio (pile PipeWire) ---
+pipewire
+pipewire-alsa
+pipewire-pulse
+wireplumber
+
+# --- Polices ---
+noto-fonts
+noto-fonts-emoji
+ttf-liberation
+
+# --- Outils système ---
+fastfetch
+ffmpeg
+curl
+wget
+git
+nano
+vim
+bash-completion
+htop
+unzip
+zip

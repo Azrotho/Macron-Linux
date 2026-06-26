@@ -1,0 +1,58 @@
+# Ignorer les fichiers temporaires et les artefacts de build
+*.iso
+*.img
+*.log
+*.tmp
+
+# Ignorer les fichiers de configuration locaux
+*.local
+*.bak
+*.swp
+
+# Ignorer les dépendances et les fichiers générés
+node_modules/
+vendor/
+dist/
+build/
+
+# Ignorer les fichiers de cache
+.cache/
+*.cache
+
+# Ignorer les fichiers de configuration spécifiques à l'utilisateur
+.config/
+*.config
+
+# Ignorer les fichiers de l'environnement virtuel
+venv/
+.env/
+
+# Ignorer les fichiers de test et de coverage
+coverage/
+*.cover
+
+# Ignorer les fichiers de documentation générés
+docs/_build/
+
+# Ignorer les fichiers de dépendances
+package-lock.json
+yarn.lock
+
+# Ignorer les fichiers de build et de release
+output/
+release/
+archiso/work/
+archiso/out/
+
+# Ignorer les fichiers de configuration de l'IDE
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Ignorer les fichiers de système
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers de test QEMU
+qemu/
+*.qcow2

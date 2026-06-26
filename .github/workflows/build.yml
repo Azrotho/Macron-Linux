@@ -1,0 +1,96 @@
+name: "🇫🇷 MacronLinux — Build ISO"
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - "v*"
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ────────────────────────────────────────────────────────────
+  # Build & Validate — Vérifie que le profil mkarchiso est valide
+  # Exécuté sur tous les push/PR. Ne télécharge PAS l'ISO
+  # (trop grande pour les artifacts GitHub gratuits).
+  # ────────────────────────────────────────────────────────────
+  build:
+    name: "Build ISO (${{ matrix.type }})"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    # Container Arch Linux avec --privileged (obligatoire pour les loop mounts de mkarchiso)
+    container:
+      image: archlinux:latest
+      options: --privileged
+
+    strategy:
+      fail-fast: false
+      matrix:
+        type: [standard, nvidia]
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Libérer l'espace disque"
+        run: |
+          echo "Espace disponible :"
+          df -h /
+          # Vider le cache pacman du container Arch
+          pacman -Scc --noconfirm 2>/dev/null || true
+          df -h /
+
+      - name: "Installer archiso"
+        run: pacman -Syu --noconfirm archiso
+
+      - name: "Préparer les répertoires"
+        run: |
+          mkdir -p output archiso/work/${{ matrix.type }}
+          chmod +x build-iso-minimal.sh
+
+      - name: "Build ISO — ${{ matrix.type }}"
+        run: ./build-iso-minimal.sh ${{ matrix.type }}
+
+      - name: "Vérifier l'ISO et générer le SHA256"
+        run: |
+          ls -lh output/macronlinux-${{ matrix.type }}.iso
+          sha256sum output/macronlinux-${{ matrix.type }}.iso \
+            > output/macronlinux-${{ matrix.type }}.iso.sha256
+          cat output/macronlinux-${{ matrix.type }}.iso.sha256
+          echo "ISO_SIZE=$(du -m output/macronlinux-${{ matrix.type }}.iso | cut -f1) MB"
+
+      # Sur les tags uniquement : uploader sur la Release directement depuis ce job
+      # → évite le transfert artifact inter-jobs (500 MB de quota dépassé par les ISOs KDE)
+      - name: "Publier sur GitHub Release (tags uniquement)"
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "MacronLinux ${{ github.ref_name }} — En mARCH! 🇫🇷"
+          body: |
+            ## MacronLinux ${{ github.ref_name }} — En mARCH! 🇫🇷
+
+            Distribution Linux parodique basée sur Arch Linux.
+
+            ### 📦 Images disponibles
+
+            | Image | Description |
+            |-------|-------------|
+            | `macronlinux-standard.iso` | Version standard (tous GPU) |
+            | `macronlinux-nvidia.iso` | Version avec pilotes NVIDIA open-source |
+
+            Vérifiez l'intégrité avec les fichiers `.sha256` fournis.
+
+            ### 🚀 Installation rapide
+            ```bash
+            sha256sum -c macronlinux-standard.iso.sha256
+            sudo dd if=macronlinux-standard.iso of=/dev/sdX bs=4M status=progress conv=fsync
+            ```
+
+            **Vive la France ! 🥖🧀🍷**
+          files: |
+            output/macronlinux-${{ matrix.type }}.iso
+            output/macronlinux-${{ matrix.type }}.iso.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
