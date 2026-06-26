@@ -20,3 +20,10 @@ chown -R macron:macron /home/macron
 # 3. Configuration de sudo sans mot de passe pour le groupe wheel
 echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/90-macronlinux
 chmod 440 /etc/sudoers.d/90-macronlinux
+
+# 4. Configuration graphique de Cinnamon (Fond d'écran et Thème GTK)
+# L'utilisation de dbus-run-session permet de modifier gsettings/dconf sans session active
+sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.background picture-uri 'file:///usr/share/wallpapers/macronlinux/Emmanuel_Macron_dark.jpg'
+sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.background picture-options 'zoom'
+sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.interface gtk-theme 'Adwaita-dark'
+

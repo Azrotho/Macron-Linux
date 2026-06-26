@@ -24,26 +24,16 @@ xorg-server
 xorg-xinit
 xorg-xrandr
 
-# --- KDE Plasma + SDDM ---
-plasma-desktop
-plasma-pa
-plasma-nm
-plasma-systemmonitor
-powerdevil
-kscreen
-bluedevil
-kdeplasma-addons
+# --- Cinnamon Desktop + SDDM ---
+cinnamon
+gnome-terminal
+eog
+file-roller
+nemo-fileroller
+gnome-calculator
+gparted
 sddm
-sddm-kcm
 
-# --- Applications KDE essentielles ---
-dolphin
-konsole
-gwenview
-ark
-spectacle
-kcalc
-partitionmanager
 
 # --- Audio (pile PipeWire) ---
 pipewire
