@@ -124,16 +124,16 @@ cat > /etc/fastfetch/config.jsonc << 'EOF'
   "modules": [
     "title",
     "separator",
-    {"type": "os",       "key": "🇫🇷 OS     "},
-    {"type": "kernel",   "key": "   Kernel"},
-    {"type": "uptime",   "key": "   Uptime"},
-    {"type": "packages", "key": "   Paquets"},
-    {"type": "shell",    "key": "   Shell"},
-    {"type": "de",       "key": "   DE"},
-    {"type": "wm",       "key": "   WM"},
-    {"type": "cpu",      "key": "   CPU"},
-    {"type": "gpu",      "key": "   GPU"},
-    {"type": "memory",   "key": "   RAM"},
+    {"type": "os",       "key": "OS"},
+    {"type": "kernel",   "key": "Kernel"},
+    {"type": "uptime",   "key": "Uptime"},
+    {"type": "packages", "key": "Paquets"},
+    {"type": "shell",    "key": "Shell"},
+    {"type": "de",       "key": "DE"},
+    {"type": "wm",       "key": "WM"},
+    {"type": "cpu",      "key": "CPU"},
+    {"type": "gpu",      "key": "GPU"},
+    {"type": "memory",   "key": "RAM"},
     "separator"
   ]
 }
@@ -163,5 +163,11 @@ cat > /etc/motd << 'EOF'
   Vive la France ! 🥖🧀🍷
 
 EOF
+
+# ---------------------------------------------------------------
+# 10. Compilation des schémas GSettings (overrides Cinnamon)
+# ---------------------------------------------------------------
+echo "Compilation des schémas GSettings..."
+glib-compile-schemas /usr/share/glib-2.0/schemas
 
 echo "=== MacronLinux — Personnalisation terminée ! ==="

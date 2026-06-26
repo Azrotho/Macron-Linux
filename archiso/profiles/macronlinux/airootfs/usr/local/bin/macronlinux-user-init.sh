@@ -21,9 +21,14 @@ chown -R macron:macron /home/macron
 echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/90-macronlinux
 chmod 440 /etc/sudoers.d/90-macronlinux
 
-# 4. Configuration graphique de Cinnamon (Fond d'écran et Thème GTK)
-# L'utilisation de dbus-run-session permet de modifier gsettings/dconf sans session active
-sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.background picture-uri 'file:///usr/share/wallpapers/macronlinux/Emmanuel_Macron_dark.jpg'
-sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.background picture-options 'zoom'
-sudo -u macron -i dbus-run-session gsettings set org.cinnamon.desktop.interface gtk-theme 'Adwaita-dark'
+# 4. Sélection d'un fond d'écran aléatoire au boot
+WALLPAPER_DIR="/usr/share/wallpapers/macronlinux"
+if [ -d "$WALLPAPER_DIR" ]; then
+    # Trouver toutes les images réelles (exclure le lien symbolique current_wallpaper.jpg)
+    RANDOM_WALLPAPER=$(find "$WALLPAPER_DIR" -type f -not -name "current_wallpaper.jpg" | shuf -n 1)
+    if [ -n "$RANDOM_WALLPAPER" ]; then
+        ln -sf "$RANDOM_WALLPAPER" "$WALLPAPER_DIR/current_wallpaper.jpg"
+    fi
+fi
+
 
