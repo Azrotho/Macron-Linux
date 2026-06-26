@@ -17,6 +17,6 @@ set base-url http://${server-ip}:${server-port}/server
 echo
 echo Connexion à ${base-url}...
 echo Démarrage de MacronLinux (Server) via iPXE...
-kernel ${base-url}/arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archiso_http_srv=${base-url}/ ip=dhcp
+kernel ${base-url}/arch/boot/x86_64/vmlinuz-linux initrd=initramfs-linux.img archisobasedir=arch archiso_http_srv=${base-url}/ ip=dhcp
 initrd ${base-url}/arch/boot/x86_64/initramfs-linux.img
 boot

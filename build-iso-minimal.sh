@@ -94,19 +94,22 @@ else
        [ -f "$OUTPUT_DIR/arch/boot/x86_64/initramfs-linux.img" ] && \
        [ -f "$OUTPUT_DIR/arch/x86_64/airootfs.sfs" ]; then
         
+        # Détection de l'adresse IP locale
+        LOCAL_IP=$(ip route get 1.1.1.1 2>/dev/null | awk '{print $7; exit}' || hostname -I | awk '{print $1}' || echo "192.168.1.100")
+
         # Génération du script iPXE d'exemple
-        echo "==> Génération du script template iPXE..."
+        echo "==> Génération du script template iPXE (IP locale détectée : $LOCAL_IP)..."
         cat <<EOF > "$OUTPUT_DIR/macronlinux-${TYPE}.ipxe"
 #!ipxe
 
 # IP/Port du serveur HTTP hébergeant ce dossier.
 # Adaptez ces valeurs à votre configuration réseau.
-set server-ip 192.168.1.100
+set server-ip $LOCAL_IP
 set server-port 8000
 set base-url http://\${server-ip}:\${server-port}/${TYPE}
 
 echo Démarrage de MacronLinux (${TYPE}) via iPXE...
-kernel \${base-url}/arch/boot/x86_64/vmlinuz-linux archisobasedir=arch archiso_http_srv=\${base-url}/ ip=dhcp
+kernel \${base-url}/arch/boot/x86_64/vmlinuz-linux initrd=initramfs-linux.img archisobasedir=arch archiso_http_srv=\${base-url}/ ip=dhcp
 initrd \${base-url}/arch/boot/x86_64/initramfs-linux.img
 boot
 EOF
