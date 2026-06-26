@@ -1,0 +1,12 @@
+[Unit]
+Description=Initialize MacronLinux Live User
+Before=sddm.service
+After=systemd-sysusers.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/macronlinux-user-init.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

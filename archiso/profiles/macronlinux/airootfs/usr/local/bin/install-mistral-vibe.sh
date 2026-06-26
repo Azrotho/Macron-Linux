@@ -21,8 +21,12 @@ fi
 
 log "Connexion réseau OK. Téléchargement de Mistral Vibe..."
 
-# Installer Mistral Vibe
-if curl -LsSf https://mistral.ai/vibe/install.sh | bash >> "$LOG_FILE" 2>&1; then
+# Installer Mistral Vibe en tant qu'utilisateur macron
+log "Exécution de l'installateur sous l'utilisateur macron..."
+if sudo -u macron -i curl -LsSf https://mistral.ai/vibe/install.sh | sudo -u macron -i bash >> "$LOG_FILE" 2>&1; then
+    log "Création des liens symboliques pour l'accès global à la commande vibe..."
+    ln -sf /home/macron/.local/bin/vibe /usr/local/bin/vibe
+    ln -sf /home/macron/.local/bin/vibe-acp /usr/local/bin/vibe-acp
     log "✅ Mistral Vibe installé avec succès !"
 
     # Désactiver le service pour ne pas réexécuter au prochain boot
@@ -32,3 +36,4 @@ else
     log "ERREUR : L'installation de Mistral Vibe a échoué. Voir $LOG_FILE"
     exit 1
 fi
+

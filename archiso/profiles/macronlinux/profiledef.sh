@@ -34,4 +34,6 @@ file_permissions=(
   ["/root/.automated_script.sh"]="0:0:755"
   ["/root/customize_airootfs.sh"]="0:0:755"
   ["/usr/local/bin/install-mistral-vibe.sh"]="0:0:755"
+  ["/usr/local/bin/macronlinux-user-init.sh"]="0:0:755"
+
 )
