@@ -37,6 +37,12 @@ echo "FONT=eurlatgr" >> /etc/vconsole.conf
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # ---------------------------------------------------------------
+# 3b. Mot de passe root par défaut (pour console d'urgence)
+# ---------------------------------------------------------------
+echo "root:macron" | chpasswd
+
+
+# ---------------------------------------------------------------
 # 4. Activer les services systemd
 # ---------------------------------------------------------------
 systemctl enable NetworkManager.service
