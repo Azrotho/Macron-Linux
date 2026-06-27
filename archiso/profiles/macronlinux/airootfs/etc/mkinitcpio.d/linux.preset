@@ -1,8 +1,9 @@
 # mkinitcpio preset file for the 'linux' package on archiso
 
-PRESETS=('archiso')
+PRESETS=('archiso' 'archiso_fallback')
 
 ALL_kver='/boot/vmlinuz-linux'
 archiso_config='/etc/mkinitcpio.conf.d/archiso.conf'
 
 archiso_image="/boot/initramfs-linux.img"
+archiso_fallback_image="/boot/initramfs-linux-fallback.img"

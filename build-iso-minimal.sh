@@ -101,6 +101,7 @@ else
         echo "==> Génération du script template iPXE (IP locale détectée : $LOCAL_IP)..."
         cat <<EOF > "$OUTPUT_DIR/macronlinux-${TYPE}.ipxe"
 #!ipxe
+imgfree
 
 # IP/Port du serveur HTTP hébergeant ce dossier.
 # Adaptez ces valeurs à votre configuration réseau.
@@ -109,7 +110,7 @@ set server-port 8000
 set base-url http://\${server-ip}:\${server-port}/${TYPE}
 
 echo Démarrage de MacronLinux (${TYPE}) via iPXE...
-kernel \${base-url}/arch/boot/x86_64/vmlinuz-linux initrd=initramfs-linux.img archisobasedir=arch archiso_http_srv=\${base-url}/ ip=dhcp
+kernel \${base-url}/arch/boot/x86_64/vmlinuz-linux initrd=initramfs-linux.img archisobasedir=arch archiso_http_srv=\${base-url}/ ip=:::::eth0:dhcp net.ifnames=0
 initrd \${base-url}/arch/boot/x86_64/initramfs-linux.img
 boot
 EOF

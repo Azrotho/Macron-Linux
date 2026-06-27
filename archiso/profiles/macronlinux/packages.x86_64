@@ -5,6 +5,7 @@ base
 linux
 linux-firmware
 mkinitcpio-archiso
+mkinitcpio-nfs-utils
 syslinux
 grub
 efibootmgr

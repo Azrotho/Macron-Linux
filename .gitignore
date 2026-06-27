@@ -56,3 +56,6 @@ Thumbs.db
 # Ignorer les fichiers de test QEMU
 qemu/
 *.qcow2
+
+# Ignorer les logs de test netboot
+logs/
