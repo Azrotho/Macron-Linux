@@ -37,5 +37,6 @@ file_permissions=(
   ["/usr/local/bin/en-marche"]="0:0:755"
   ["/usr/local/bin/install-mistral-vibe"]="0:0:755"
   ["/usr/local/bin/macronlinux-user-init.sh"]="0:0:755"
+  ["/usr/local/bin/macronlinux-audio-init.sh"]="0:0:755"
 
 )

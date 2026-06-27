@@ -19,6 +19,25 @@ if [ "$#" -eq 0 ]; then
     exit 1
 fi
 
+run_pacman_with_keyring_fallback() {
+    if ! sudo pacman "$@"; then
+        echo -e "\n\e[1;31m[en-marche]\e[0m Erreur de transaction Pacman détectée (clés obsolètes ou corrompues)."
+        read -p "[en-marche] Voulez-vous que la Start-up Nation modernise vos clés de confiance automatiquement ? [O/n] : " -n 1 -r REPLY
+        echo
+        if [[ $REPLY =~ ^[OoYy]$ ]] || [ -z "$REPLY" ]; then
+            echo -e "\e[1;34m[en-marche]\e[0m Grande réforme structurelle du trousseau de clés..."
+            sudo pacman -Sy --noconfirm archlinux-keyring
+            sudo pacman-key --init
+            sudo pacman-key --populate archlinux
+            echo -e "\e[1;32m[en-marche]\e[0m Clés de confiance mises à jour. Nouvelle tentative d'installation..."
+            sudo pacman "$@"
+        else
+            echo -e "\e[1;31m[en-marche]\e[0m Annulation de la réforme des clés."
+            exit 1
+        fi
+    fi
+}
+
 CMD="$1"
 shift
 
@@ -29,7 +48,7 @@ case "$CMD" in
             exit 1
         fi
         echo -e "\e[1;34m[en-marche]\e[0m Négociation sur le marché des paquets pour installer $*..."
-        sudo pacman -S "$@"
+        run_pacman_with_keyring_fallback -S "$@"
         ;;
     supprimer)
         if [ "$#" -eq 0 ]; then
@@ -49,7 +68,7 @@ case "$CMD" in
         ;;
     moderniser)
         echo -e "\e[1;32m[en-marche]\e[0m Lancement de la grande réforme structurelle du système..."
-        sudo pacman -Syu
+        run_pacman_with_keyring_fallback -Syu
         ;;
     *)
         echo -e "Commande disruptive inconnue : $CMD"

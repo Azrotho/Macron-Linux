@@ -1,19 +1,8 @@
-[Desktop Entry]
-Name=MacronLinux Sound Theme
-Name[fr]=Thème sonore MacronLinux
-Comment=Sons personnalisés pour MacronLinux — En mARCH!
-Type=Service
-X-KDE-ServiceTypes=KNotify/SoundTheme
+[Sound Theme]
+Name=macronlinux
+Comment=Thème sonore MacronLinux — En mARCH!
+Inherits=freedesktop
+Directories=stereo
 
-[Directories]
-OutputDir=macronlinux
-
-[macronlinux]
-Directory=/usr/share/sounds/macronlinux
-
-# Sons affectés aux événements système
-[Events]
-boot_sound=boot_sound.mp3
-error_sound=error_sound.mp3
-notification=hey-hey-hey-macron.mp3
-messageNew=hey-hey-hey-macron.mp3
+[stereo]
+OutputProfile=stereo

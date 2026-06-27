@@ -37,6 +37,9 @@ nemo-fileroller
 gnome-calculator
 gparted
 sddm
+materia-gtk-theme
+papirus-icon-theme
+
 
 
 # --- Audio (pile PipeWire) ---
@@ -44,6 +47,12 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 wireplumber
+sof-firmware
+alsa-ucm-conf
+alsa-firmware
+gst-plugins-good
+gst-libav
+
 
 # --- Polices ---
 noto-fonts

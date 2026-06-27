@@ -3,4 +3,24 @@ picture-uri='file:///usr/share/wallpapers/macronlinux/current_wallpaper.jpg'
 picture-options='zoom'
 
 [org.cinnamon.desktop.interface]
-gtk-theme='Adwaita-dark'
+gtk-theme='Materia-dark'
+icon-theme='Papirus-Dark'
+
+[org.cinnamon.desktop.wm.preferences]
+theme='Materia-dark'
+
+[org.cinnamon.theme]
+name='Materia-dark'
+
+[org.cinnamon.sounds]
+login-enabled=true
+login-file='/usr/share/sounds/macronlinux/stereo/desktop-login.ogg'
+logout-enabled=true
+logout-file='/usr/share/sounds/macronlinux/stereo/desktop-logout.ogg'
+notification-enabled=true
+notification-file='/usr/share/sounds/macronlinux/stereo/message.ogg'
+
+[org.cinnamon.desktop.sound]
+event-sounds=true
+theme-name='macronlinux'
+
