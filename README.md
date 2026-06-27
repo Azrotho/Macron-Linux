@@ -19,7 +19,7 @@
 - **Commandes parodiques intégrées** : `49.3` (passage en force root), `en-marche` (wrapper pacman Start-up Nation), et retours d'erreurs interactifs (citations cultes).
 - **Autocomplétion (Tab-completion)** complète pour toutes les commandes personnalisées.
 - **Branding MacronLinux** — `os-release`, hostname, MOTD, neofetch remplacé par `fastfetch`.
-- **Trois versions** : standard (tous GPU), NVIDIA (pilotes open-source `nvidia-open`) et **Server Edition** (headless, ultra-légère avec serveur SSH actif).
+- **Trois versions** : standard (tous GPU), NVIDIA (pilotes open-source `nvidia-open`, à compiler soi-même) et **Server Edition** (headless, ultra-légère avec serveur SSH actif).
 - **Clavier AZERTY** et **locale française** préconfigurés.
 - **Fuseau horaire** Europe/Paris par défaut.
 
@@ -30,6 +30,9 @@
 ### 1. Télécharger l'ISO
 
 Récupérez la dernière release depuis [GitHub Releases](https://github.com/azrotho/Macron-Linux/releases).
+
+> [!IMPORTANT]
+> Seules les versions **Standard** et **Server** sont proposées en téléchargement direct. La version **NVIDIA** doit être compilée par vos soins (voir section Build local), car l'optimisation pour des puces conçues par des multinationales américaines n'est pas souveraine et ne représente pas la grandeur de la France 🇫🇷.
 
 Vérifiez l'intégrité :
 ```bash
@@ -62,7 +65,7 @@ sudo pacman -S archiso
 # Construire l'ISO standard
 make build-standard
 
-# Construire l'ISO NVIDIA
+# Construire l'ISO NVIDIA (à compiler vous-même, non fournie pré-compilée)
 make build-nvidia
 
 # Construire l'ISO Server (sans environnement graphique, avec SSH)
