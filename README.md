@@ -32,18 +32,18 @@
 Récupérez la dernière release depuis [GitHub Releases](https://github.com/azrotho/Macron-Linux/releases).
 
 > [!IMPORTANT]
-> Seules les versions **Standard** et **Server** sont proposées en téléchargement direct. La version **NVIDIA** doit être compilée par vos soins (voir section Build local), car l'optimisation pour des puces conçues par des multinationales américaines n'est pas souveraine et ne représente pas la grandeur de la France 🇫🇷.
+> Seule la version **Server** est proposée en téléchargement direct. La version **Standard** est bien trop volumineuse pour être hébergée sur GitHub (satanée technologie américaine ! 🇺🇸) et doit donc être construite par vos soins (voir section Build local). Quant à la version **NVIDIA**, elle doit également être compilée localement car l'optimisation pour des puces conçues par des multinationales d'outre-Atlantique n'est pas souveraine et ne représente pas la grandeur de la France 🇫🇷.
 
 Vérifiez l'intégrité :
 ```bash
-sha256sum -c macronlinux-standard.iso.sha256
+sha256sum -c macronlinux-server.iso.sha256
 ```
 
 ### 2. Créer une clé USB bootable
 
 ```bash
 # Linux
-sudo dd if=macronlinux-standard.iso of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=macronlinux-server.iso of=/dev/sdX bs=4M status=progress conv=fsync
 
 # Ou avec Rufus (Windows) / Balena Etcher (multiplateforme)
 ```
@@ -55,6 +55,8 @@ Démarrez sur la clé USB. Le système démarrera directement sur le bureau Cinn
 ---
 
 ## 🛠️ Construction de l'ISO (build local)
+
+### Option A : En local (requiert Arch Linux)
 
 Prérequis : **Arch Linux** avec `archiso` installé.
 
@@ -70,7 +72,28 @@ make build-nvidia
 
 # Construire l'ISO Server (sans environnement graphique, avec SSH)
 make build-server
+```
 
+### Option B : Via Docker (pour les autres distributions)
+
+Prérequis : **Docker** installé et configuré (avec droits d'exécution root/privilégiés pour monter les loop devices).
+
+```bash
+# Construire la version Standard
+make build-docker-standard
+
+# Construire la version NVIDIA
+make build-docker-nvidia
+
+# Construire la version Server
+make build-docker-server
+```
+
+*(Les ISOs générées seront placées dans le dossier `output/` et les répertoires de travail temporaires sont nettoyés automatiquement à la fin).*
+
+### Tester l'ISO (QEMU)
+
+```bash
 # Tester la version standard avec QEMU (KVM requis)
 make test-standard
 

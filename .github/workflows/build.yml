@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        type: [standard, server]
+        type: [server]
 
     steps:
       - name: "Checkout"
@@ -77,17 +77,16 @@ jobs:
 
             | Image | Description |
             |-------|-------------|
-            | `macronlinux-standard.iso` | Version standard (tous GPU) |
             | `macronlinux-server.iso` | Version Server Edition (headless, SSH actif) |
 
-            *Note : La version NVIDIA n'est pas fournie pré-compilée car l'optimisation pour des puces étrangères n'est pas souveraine et ne représente pas la grandeur de la France 🇫🇷.*
+            *Note : La version Standard est trop grosse pour GitHub (satanée technologie américaine ! 🇺🇸) et doit être compilée par vos soins. La version NVIDIA n'est également pas fournie pré-compilée car l'optimisation pour des puces étrangères n'est pas souveraine et ne représente pas la grandeur de la France 🇫🇷.*
 
             Vérifiez l'intégrité avec les fichiers `.sha256` fournis.
 
             ### 🚀 Installation rapide
             ```bash
-            sha256sum -c macronlinux-standard.iso.sha256
-            sudo dd if=macronlinux-standard.iso of=/dev/sdX bs=4M status=progress conv=fsync
+            sha256sum -c macronlinux-server.iso.sha256
+            sudo dd if=macronlinux-server.iso of=/dev/sdX bs=4M status=progress conv=fsync
             ```
 
             **Vive la France ! 🥖🧀🍷**

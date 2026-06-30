@@ -28,15 +28,30 @@ build-standard:
 	@echo "==> Building MacronLinux Standard ISO..."
 	sudo ./build-iso-minimal.sh standard
 
+## Construire la version standard via Docker (pour non-Arch Linux)
+build-docker-standard:
+	@echo "==> Building MacronLinux Standard ISO inside Docker..."
+	docker run --privileged --rm -v $(CURDIR):/workspace -w /workspace archlinux:latest bash -c 'pacman -Syu --noconfirm archiso && (./build-iso-minimal.sh standard; status=$$?; rm -rf archiso/work/standard-iso; exit $$status)'
+
 ## Construire la version NVIDIA
 build-nvidia:
 	@echo "==> Building MacronLinux NVIDIA ISO..."
 	sudo ./build-iso-minimal.sh nvidia
 
+## Construire la version NVIDIA via Docker (pour non-Arch Linux)
+build-docker-nvidia:
+	@echo "==> Building MacronLinux NVIDIA ISO inside Docker..."
+	docker run --privileged --rm -v $(CURDIR):/workspace -w /workspace archlinux:latest bash -c 'pacman -Syu --noconfirm archiso && (./build-iso-minimal.sh nvidia; status=$$?; rm -rf archiso/work/nvidia-iso; exit $$status)'
+
 ## Construire la version serveur
 build-server:
 	@echo "==> Building MacronLinux Server ISO..."
 	sudo ./build-iso-minimal.sh server
+
+## Construire la version serveur via Docker (pour non-Arch Linux)
+build-docker-server:
+	@echo "==> Building MacronLinux Server ISO inside Docker..."
+	docker run --privileged --rm -v $(CURDIR):/workspace -w /workspace archlinux:latest bash -c 'pacman -Syu --noconfirm archiso && (./build-iso-minimal.sh server; status=$$?; rm -rf archiso/work/server-iso; exit $$status)'
 
 ## Construire la version standard netboot/iPXE
 build-netboot-standard:
@@ -185,6 +200,7 @@ clean-all: clean
 all: build
 
 .PHONY: build build-standard build-nvidia build-server \
+        build-docker-standard build-docker-nvidia build-docker-server \
         build-netboot build-netboot-standard build-netboot-server netboot netboot-server \
         test-standard test-nvidia test-server \
         test-netboot-standard test-netboot-server \
