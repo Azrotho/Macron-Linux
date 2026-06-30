@@ -1,0 +1,17 @@
+#!/bin/bash
+# deezer — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== DEEZER ===\e[0m"
+echo -e "\e[3m\"La musique souveraine et subventionnée par taxes.\"\e[0m"
+echo ""
+echo -e "Le streaming musical tricolore régulé pour le bien-être auditif.
+\"Écoutez la Marseillaise en haute fidélité (taxe streaming incluse).\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.deezer.com\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.deezer.com" &>/dev/null &
+fi

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=BonjourLaFuite
+Comment=Suivi transparent des fuites de données de la Start-up Nation
+Exec=bonjourlafuite
+Icon=bonjourlafuite
+Categories=Network;WebBrowser;

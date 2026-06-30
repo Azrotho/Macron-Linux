@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=LVMH
+Comment=Théorie du ruissellement vertical haut de gamme
+Exec=lvmh
+Icon=lvmh
+Categories=Network;WebBrowser;

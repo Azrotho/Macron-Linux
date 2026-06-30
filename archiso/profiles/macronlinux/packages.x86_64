@@ -31,6 +31,7 @@ xf86-video-fbdev
 
 # --- Cinnamon Desktop + SDDM ---
 cinnamon
+firefox
 gnome-terminal
 eog
 file-roller
@@ -40,6 +41,7 @@ gparted
 sddm
 materia-gtk-theme
 papirus-icon-theme
+librsvg
 
 
 

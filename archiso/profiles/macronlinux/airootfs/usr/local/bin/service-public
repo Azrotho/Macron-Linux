@@ -1,0 +1,16 @@
+#!/bin/bash
+# service-public — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== SERVICE PUBLIC ===\e[0m"
+echo -e "\e[3m\"Le guichet unique de la complexité administrative numérisée.\"\e[0m"
+echo ""
+echo -e "La simplification administrative par les formulaires numériques.\n\"Pour vos démarches, veuillez remplir le formulaire Cerfa n°12345*67 en trois exemplaires virtuels.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.service-public.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.service-public.fr" &>/dev/null &
+fi

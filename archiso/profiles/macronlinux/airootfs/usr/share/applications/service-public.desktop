@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Service Public
+Comment=Le guichet unique de la complexité administrative numérisée
+Exec=service-public
+Icon=service-public
+Categories=Network;WebBrowser;

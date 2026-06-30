@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Deezer
+Comment=Musique souveraine tricolore régulée et taxée
+Exec=deezer
+Icon=deezer
+Categories=Network;WebBrowser;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Gouvernement
+Comment=La boîte à outils législative (49.3 inclus)
+Exec=gouvernement
+Icon=gouvernement
+Categories=Network;WebBrowser;

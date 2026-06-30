@@ -1,0 +1,16 @@
+#!/bin/bash
+# ameli — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== AMELI ===\e[0m"
+echo -e "\e[3m\"La sécurité sociale en marche, connectée mais souvent en maintenance.\"\e[0m"
+echo ""
+echo -e "L'Assurance Maladie en ligne.\n\"Le site est actuellement indisponible pour maintenance hebdomadaire. Veuillez retenter votre connexion entre 2h et 4h du matin.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.ameli.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.ameli.fr" &>/dev/null &
+fi

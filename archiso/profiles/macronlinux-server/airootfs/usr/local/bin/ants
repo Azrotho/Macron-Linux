@@ -1,0 +1,16 @@
+#!/bin/bash
+# ants — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== ANTS ===\e[0m"
+echo -e "\e[3m\"La plateforme d'obtention de titres en 180 jours (si le serveur fonctionne).\"\e[0m"
+echo ""
+echo -e "Agence Nationale des Titres Sécurisés.\n\"Aucun rendez-vous disponible dans votre département pour les 12 prochains mois. Merci d'avoir choisi la rapidité numérique !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://ants.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://ants.gouv.fr" &>/dev/null &
+fi

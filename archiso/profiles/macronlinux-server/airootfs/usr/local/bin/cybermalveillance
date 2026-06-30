@@ -1,0 +1,16 @@
+#!/bin/bash
+# cybermalveillance — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== CYBERMALVEILLANCE ===\e[0m"
+echo -e "\e[3m\"Le guide de survie face au piratage de vos données de la Start-up Nation.\"\e[0m"
+echo ""
+echo -e "Le portail de l'assistance numérique nationale.\n\"Victime d'une fuite de données suite à une faille sur un site de l'État ? C'est de la pédagogie cybernétique !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.cybermalveillance.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.cybermalveillance.gouv.fr" &>/dev/null &
+fi

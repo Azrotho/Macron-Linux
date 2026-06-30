@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=France Travail
+Comment=Boussole de traversée de rue pour l'employabilité
+Exec=france-travail
+Icon=france-travail
+Categories=Network;WebBrowser;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Conseil Constitutionnel
+Comment=Les sages gardiens des passages en force
+Exec=conseil-constitutionnel
+Icon=conseil-constitutionnel
+Categories=Network;WebBrowser;

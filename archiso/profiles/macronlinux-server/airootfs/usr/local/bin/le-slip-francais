@@ -1,0 +1,21 @@
+#!/bin/bash
+# le-slip-francais — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== LE SLIP FRANÇAIS ===\e[0m"
+echo -e "\e[3m\"Le slip tricolore, fleuron de notre souveraineté industrielle et de l'élasticité nationale.\"\e[0m"
+echo ""
+echo -e "Souveraineté textile par le bas de la Start-up Nation.
+\"Pour que le Fabriqué en France enrobe nos fesses avec rigueur budgétaire !\"
+ _
+/ \
+|  |  <- Slip souverain
+\_/"
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.leslipfrancais.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.leslipfrancais.fr" &>/dev/null &
+fi

@@ -1,0 +1,16 @@
+#!/bin/bash
+# senat — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== SÉNAT ===\e[0m"
+echo -e "\e[3m\"Le club de réflexion intergénérationnel et de réformes tranquilles.\"\e[0m"
+echo ""
+echo -e "La chambre haute de la sagesse réformiste.\n\"Prendre le temps d'amender les réformes disruptives... mais pas trop vite, s'il vous plaît.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.senat.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.senat.fr" &>/dev/null &
+fi

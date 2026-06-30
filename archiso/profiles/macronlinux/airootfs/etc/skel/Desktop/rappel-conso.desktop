@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Rappel Conso
+Comment=Le catalogue des innovations alimentaires contaminées
+Exec=rappel-conso
+Icon=rappel-conso
+Categories=Network;WebBrowser;

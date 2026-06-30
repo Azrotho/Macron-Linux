@@ -1,0 +1,16 @@
+#!/bin/bash
+# rappel-conso — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== RAPPEL CONSO ===\e[0m"
+echo -e "\e[3m\"Le catalogue national des innovations alimentaires contaminées.\"\e[0m"
+echo ""
+echo -e "Le portail officiel des alertes produits.\n\"Découvrez les nouveaux produits de grande consommation contenant de la listeria, du verre ou du plastique. Mangez sain, mangez averti !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://rappel.conso.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://rappel.conso.gouv.fr" &>/dev/null &
+fi

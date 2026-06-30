@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Qwant
+Comment=Le moteur de recherche souverain (propulsé par Bing)
+Exec=qwant
+Icon=qwant
+Categories=Network;WebBrowser;

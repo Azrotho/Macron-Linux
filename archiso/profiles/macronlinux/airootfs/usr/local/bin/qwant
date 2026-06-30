@@ -1,0 +1,16 @@
+#!/bin/bash
+# qwant — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== QWANT ===\e[0m"
+echo -e "\e[3m\"Le moteur de recherche souverain qui protège votre vie privée (grâce aux algorithmes de Bing).\"\e[0m"
+echo ""
+echo -e "Le moteur de recherche souverain de la Start-up Nation.\n\"Recherchez en français, hébergé en français... mais propulsé par la technologie américaine de Microsoft Bing. La souveraineté hybride !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.qwant.com\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.qwant.com" &>/dev/null &
+fi

@@ -30,6 +30,7 @@ xf86-video-fbdev
 
 # --- Cinnamon Desktop + SDDM ---
 cinnamon
+firefox
 gnome-terminal
 eog
 file-roller
@@ -37,6 +38,7 @@ nemo-fileroller
 gnome-calculator
 gparted
 sddm
+librsvg
 
 
 # --- Audio (pile PipeWire) ---

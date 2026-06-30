@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Carrefour
+Comment=Souveraineté alimentaire et caddies tricolores
+Exec=carrefour
+Icon=carrefour
+Categories=Network;WebBrowser;

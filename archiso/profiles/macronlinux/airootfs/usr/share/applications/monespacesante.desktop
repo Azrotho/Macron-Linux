@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Mon Espace Santé
+Comment=Votre coffre-fort médical national (premiers de cordée)
+Exec=monespacesante
+Icon=monespacesante
+Categories=Network;WebBrowser;

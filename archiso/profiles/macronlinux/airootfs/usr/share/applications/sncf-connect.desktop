@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=SNCF Connect
+Comment=Planification de voyages ferroviaires constitutionnels
+Exec=sncf-connect
+Icon=sncf-connect
+Categories=Network;WebBrowser;

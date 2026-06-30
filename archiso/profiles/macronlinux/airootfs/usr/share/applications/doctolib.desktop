@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Doctolib
+Comment=Optimisation du capital santé de la nation
+Exec=doctolib
+Icon=doctolib
+Categories=Network;WebBrowser;

@@ -1,0 +1,16 @@
+#!/bin/bash
+# parcoursup — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== PARCOURSUP ===\e[0m"
+echo -e "\e[3m\"L'algorithme mystique de sélection post-bac de nos futurs leaders.\"\e[0m"
+echo ""
+echo -e "L'orientation post-bac de la Start-up Nation.\n\"Vous êtes 49300ème sur liste d'attente pour une licence de philosophie. L'algorithme a parlé, respectez son choix mystique !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.parcoursup.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.parcoursup.gouv.fr" &>/dev/null &
+fi

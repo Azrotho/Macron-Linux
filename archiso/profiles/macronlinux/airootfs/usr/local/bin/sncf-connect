@@ -1,0 +1,17 @@
+#!/bin/bash
+# sncf-connect — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== SNCF CONNECT ===\e[0m"
+echo -e "\e[3m\"L'application de mobility durable et d'imprévus ferroviaires constitutionnels.\"\e[0m"
+echo ""
+echo -e "Mobilité ferroviaire et planification écologique complexe.
+\"Votre voyage est retardé pour cause de grève ou d'application en cours de maintenance. Bon courage !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.sncf-connect.com\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.sncf-connect.com" &>/dev/null &
+fi

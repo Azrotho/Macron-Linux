@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Parcoursup
+Comment=L'algorithme mystique de sélection post-bac
+Exec=parcoursup
+Icon=parcoursup
+Categories=Network;WebBrowser;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=TotalEnergies
+Comment=Transition énergétique verte et superprofits
+Exec=total-energies
+Icon=total-energies
+Categories=Network;WebBrowser;

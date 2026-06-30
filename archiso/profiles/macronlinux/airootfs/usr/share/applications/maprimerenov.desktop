@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=MaPrimeRénov'
+Comment=Financez l'isolation thermique après 12 formulaires
+Exec=maprimerenov
+Icon=maprimerenov
+Categories=Network;WebBrowser;

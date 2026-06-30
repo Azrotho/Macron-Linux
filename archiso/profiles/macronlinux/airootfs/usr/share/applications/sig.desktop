@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=SIG
+Comment=La fabrique d'éléments de langage officiels
+Exec=sig
+Icon=sig
+Categories=Network;WebBrowser;

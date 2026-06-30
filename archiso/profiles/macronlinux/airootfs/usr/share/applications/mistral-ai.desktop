@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Mistral AI
+Comment=L'intelligence artificielle souveraine et disruptive
+Exec=mistral-ai
+Icon=mistral-ai
+Categories=Network;WebBrowser;

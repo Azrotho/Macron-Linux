@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Marmiton
+Comment=Gastronomie nationale souveraine
+Exec=marmiton
+Icon=marmiton
+Categories=Network;WebBrowser;

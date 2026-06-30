@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Le Bon Coin
+Comment=Division Économie Circulaire de la Start-up Nation
+Exec=leboncoin
+Icon=leboncoin
+Categories=Network;WebBrowser;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Dailymotion
+Comment=L'hébergement vidéo souverain face aux GAFAM
+Exec=dailymotion
+Icon=dailymotion
+Categories=Network;WebBrowser;

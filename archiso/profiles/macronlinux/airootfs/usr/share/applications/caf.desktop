@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=CAF
+Comment=La redistribution sous contrôle d'algorithme
+Exec=caf
+Icon=caf
+Categories=Network;WebBrowser;

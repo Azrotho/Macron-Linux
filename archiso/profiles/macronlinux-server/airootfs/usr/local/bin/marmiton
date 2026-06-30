@@ -1,0 +1,17 @@
+#!/bin/bash
+# marmiton — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== MARMITON ===\e[0m"
+echo -e "\e[3m\"Le guide gastronomique souverain pour nourrir les forces vives du pays.\"\e[0m"
+echo ""
+echo -e "Gastronomie nationale et indépendance culinaire française.
+\"Parce que la grandeur de la France commence par un bon bœuf bourguignon disruptif.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.marmiton.org\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.marmiton.org" &>/dev/null &
+fi

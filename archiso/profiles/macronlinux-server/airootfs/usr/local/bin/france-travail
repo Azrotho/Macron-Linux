@@ -1,0 +1,17 @@
+#!/bin/bash
+# france-travail — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== FRANCE TRAVAIL ===\e[0m"
+echo -e "\e[3m\"Votre boussole de traversée de rue pour un retour rapide à l'employabilité.\"\e[0m"
+echo ""
+echo -e "Traverser la rue & Modernisation de l'employabilité nationale.
+\"Il suffit de traverser la rue pour trouver un emploi ! Enfilez vos baskets de la nation.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.francetravail.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.francetravail.fr" &>/dev/null &
+fi

@@ -1,0 +1,17 @@
+#!/bin/bash
+# carrefour — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== CARREFOUR ===\e[0m"
+echo -e "\e[3m\"L'approvisionnement des ménages sous contrôle des prix et de la souveraineté alimentaire.\"\e[0m"
+echo ""
+echo -e "La grande distribution au service de la souveraineté alimentaire.
+\"Le panier de la ménagère réformé avec bienveillance et caddies disruptifs.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.carrefour.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.carrefour.fr" &>/dev/null &
+fi

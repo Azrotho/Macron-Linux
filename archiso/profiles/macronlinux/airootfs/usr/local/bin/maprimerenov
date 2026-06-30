@@ -1,0 +1,16 @@
+#!/bin/bash
+# maprimerenov — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== MAPRIMERÉNOV' ===\e[0m"
+echo -e "\e[3m\"Financez l'isolation de votre passoire thermique après 12 formulaires d'évaluation.\"\e[0m"
+echo ""
+echo -e "La transition énergétique du parc immobilier national.\n\"Isolez vos combles pour 1€... après avoir prouvé votre identité fiscale en 49 étapes administratives.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.maprimerenov.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.maprimerenov.gouv.fr" &>/dev/null &
+fi

@@ -1,0 +1,16 @@
+#!/bin/bash
+# caf — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== CAF ===\e[0m"
+echo -e "\e[3m\"La redistribution des aides sociales sous contrôle d'algorithmes de détection de fraude.\"\e[0m"
+echo ""
+echo -e "Caisse d'Allocations Familiales.\n\"L'aide sociale optimisée par IA. Votre dossier est temporairement suspendu pour vérification algorithmique. Veuillez patienter 6 mois.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.caf.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.caf.fr" &>/dev/null &
+fi

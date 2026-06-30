@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Sénat
+Comment=Le club de réflexion intergénérationnel de la nation
+Exec=senat
+Icon=senat
+Categories=Network;WebBrowser;

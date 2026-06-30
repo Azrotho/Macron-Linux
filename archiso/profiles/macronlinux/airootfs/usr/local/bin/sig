@@ -1,0 +1,16 @@
+#!/bin/bash
+# sig — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== SIG ===\e[0m"
+echo -e "\e[3m\"La fabrique d'éléments de langage officiels pour décrypter la bienveillance présidentielle.\"\e[0m"
+echo ""
+echo -e "Service d'Information du Gouvernement.\n\"Traduire les réformes difficiles en 'pédagogie de la bienveillance' et en 'disruptions d'opportunité'.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.sig.gouv.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.sig.gouv.fr" &>/dev/null &
+fi

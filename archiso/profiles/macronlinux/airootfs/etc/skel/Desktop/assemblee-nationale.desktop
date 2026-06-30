@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Assemblée Nationale
+Comment=L'arène des réformes et des motions de censure
+Exec=assemblee-nationale
+Icon=assemblee-nationale
+Categories=Network;WebBrowser;

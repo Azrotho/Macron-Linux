@@ -1,0 +1,16 @@
+#!/bin/bash
+# gouvernement — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== GOUVERNEMENT ===\e[0m"
+echo -e "\e[3m\"La boîte à outils législative et constitutionnelle de la nation.\"\e[0m"
+echo ""
+echo -e "Le portail de l'action publique disruptive.\n\"Gouverner, c'est choisir... d'engager la responsabilité du gouvernement sans vote. Vive le 49.3 !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.gouvernement.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.gouvernement.fr" &>/dev/null &
+fi

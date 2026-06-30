@@ -1,0 +1,17 @@
+#!/bin/bash
+# lvmh — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== LVMH ===\e[0m"
+echo -e "\e[3m\"Le ruissellement haut de gamme et l'optimisation des richesses nationales.\"\e[0m"
+echo ""
+echo -e "Théorie du ruissellement vertical de la Start-up Nation.
+\"Le luxe est le premier de cordée de notre économie. Achetez des bulles de souveraineté !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.lvmh.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.lvmh.fr" &>/dev/null &
+fi

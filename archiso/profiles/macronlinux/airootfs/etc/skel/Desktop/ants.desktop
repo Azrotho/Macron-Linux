@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=ANTS
+Comment=La plateforme d'obtention de passeports en 180 jours
+Exec=ants
+Icon=ants
+Categories=Network;WebBrowser;

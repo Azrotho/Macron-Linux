@@ -1,0 +1,17 @@
+#!/bin/bash
+# dailymotion — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== DAILYMOTION ===\e[0m"
+echo -e "\e[3m\"La plateforme vidéo souveraine qui concurrence courageusement l'hégémonie américaine (avec 15 ans de retard).\"\e[0m"
+echo ""
+echo -e "La plateforme vidéo souveraine de la Start-up Nation.
+\"Concurrencer YouTube en 240p avec panache et souveraineté numérique.\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.dailymotion.com\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.dailymotion.com" &>/dev/null &
+fi

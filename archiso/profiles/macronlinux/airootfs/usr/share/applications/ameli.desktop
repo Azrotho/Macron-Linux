@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Ameli
+Comment=La sécu en marche, connectée mais en maintenance
+Exec=ameli
+Icon=ameli
+Categories=Network;WebBrowser;

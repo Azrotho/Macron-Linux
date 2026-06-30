@@ -1,0 +1,16 @@
+#!/bin/bash
+# assemblee-nationale — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== ASSEMBLÉE NATIONALE ===\e[0m"
+echo -e "\e[3m\"L'arène démocratique de vote par ordonnances et de motions de censure.\"\e[0m"
+echo ""
+echo -e "L'hémicycle de la Start-up Nation.\n\"Où l'opposition s'agite pendant que le gouvernement légifère par ordonnance. Un spectacle haut en couleurs !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.assemblee-nationale.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.assemblee-nationale.fr" &>/dev/null &
+fi

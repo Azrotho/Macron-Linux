@@ -1,0 +1,17 @@
+#!/bin/bash
+# total-energies — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== TOTALENERGIES ===\e[0m"
+echo -e "\e[3m\"Transition énergétique verte à fort rendement d'actionnaires.\"\e[0m"
+echo ""
+echo -e "Souveraineté énergétique et superprofits éco-responsables.
+\"De l'énergie propre... ou presque. Mais avec de super dividendes pour nos premiers de cordée !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.totalenergies.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.totalenergies.fr" &>/dev/null &
+fi

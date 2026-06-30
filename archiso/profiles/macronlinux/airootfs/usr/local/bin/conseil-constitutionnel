@@ -1,0 +1,16 @@
+#!/bin/bash
+# conseil-constitutionnel — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== CONSEIL CONSTITUTIONNEL ===\e[0m"
+echo -e "\e[3m\"Les sages gardiens de la conformité constitutionnelle des passages en force.\"\e[0m"
+echo ""
+echo -e "La gardienne suprême de nos réformes.\n\"Parce qu'une réforme impopulaire est toujours plus belle lorsqu'elle est déclarée conforme à la Constitution. Validé !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.conseil-constitutionnel.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.conseil-constitutionnel.fr" &>/dev/null &
+fi

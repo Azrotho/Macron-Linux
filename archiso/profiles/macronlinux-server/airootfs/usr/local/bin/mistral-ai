@@ -1,0 +1,17 @@
+#!/bin/bash
+# mistral-ai — Service de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== MISTRAL AI ===\e[0m"
+echo -e "\e[3m\"L'IA souveraine européenne qui souffle sur les GAFAM.\"\e[0m"
+echo ""
+echo -e "L'intelligence artificielle souveraine et hautement compétitive.
+\"Faire bruisser les algorithmes en français, loin du centralisme américain. En mARCH! la tech !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://mistral.ai\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://mistral.ai" &>/dev/null &
+fi
