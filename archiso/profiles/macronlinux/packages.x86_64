@@ -4,6 +4,7 @@
 base
 linux
 linux-firmware
+linux-firmware-broadcom
 mkinitcpio-archiso
 mkinitcpio-nfs-utils
 syslinux
