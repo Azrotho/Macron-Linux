@@ -1,0 +1,16 @@
+#!/bin/bash
+# urssaf — Recouvrement disruptif de la Start-up Nation 🇫🇷
+
+echo -e "\e[1;34m=== URSSAF ===\e[0m"
+echo -e "\e[3m\"La collecte bienveillante et obligatoire de votre contribution de start-upper de la nation.\"\e[0m"
+echo ""
+echo -e "Union de Recouvrement des Cotisations de Sécurité Sociale et d'Allocations Familiales.\n\"Votre déclaration trimestrielle a été rectifiée d'office avec une majoration de 15% pour dépassement de délai virtuel de 2 secondes. Bonne journée entrepreneuriale !\""
+echo ""
+echo -e "Lien officiel : \e[4;32mhttps://www.urssaf.fr\e[0m"
+echo ""
+
+# Si un serveur d'affichage est présent (X11 ou Wayland), on ouvre le navigateur
+if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo "Lancement du navigateur souverain..."
+    xdg-open "https://www.urssaf.fr" &>/dev/null &
+fi

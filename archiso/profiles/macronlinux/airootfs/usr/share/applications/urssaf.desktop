@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=URSSAF
+Comment=Recouvrement disruptif et majorations bienveillantes
+Exec=urssaf
+Icon=urssaf
+Categories=Network;WebBrowser;

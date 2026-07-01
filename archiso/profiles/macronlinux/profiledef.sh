@@ -68,4 +68,5 @@ file_permissions=(
   ["/usr/local/bin/parcoursup"]="0:0:755"
   ["/usr/local/bin/sig"]="0:0:755"
   ["/usr/local/bin/cybermalveillance"]="0:0:755"
+  ["/usr/local/bin/urssaf"]="0:0:755"
 )

@@ -23,7 +23,7 @@
 - **Clavier AZERTY** et **locale française** préconfigurés.
 - **Fuseau horaire** Europe/Paris par défaut.
 - **Navigateur par défaut (Malheureusement Firefox)** — Forcés d'utiliser une technologie d'outre-Atlantique faute de navigateur souverain digne de ce nom. Préconfiguré via les associations MIME globales (Standard & NVIDIA) pour ouvrir les actifs web de la Nation.
-- **30 raccourcis et commandes web français** — Raccourcis sur le bureau, dans le Menu Démarrer et commandes CLI directes vers 15 fleurons de la Start-up Nation (Le Slip Français, Leboncoin, Qwant, BonjourLaFuite...) et 15 portails bureaucratiques (Élysée, Parcoursup, CAF, ANTS, etc.) pour stimuler votre employabilité.
+- **31 raccourcis et commandes web français** — Raccourcis sur le bureau, dans le Menu Démarrer et commandes CLI directes vers 15 fleurons de la Start-up Nation (Le Slip Français, Leboncoin, Qwant, BonjourLaFuite...) et 16 portails bureaucratiques (Élysée, Parcoursup, CAF, ANTS, URSSAF, etc.) pour stimuler votre employabilité.
 
 ---
 
@@ -189,8 +189,8 @@ Chaque fois qu'une commande échoue dans le terminal (code de sortie non nul), l
 - *« C'est un pognon de dingue ! »*
 
 ### 4. Raccourcis et commandes web parodiques
-30 sites incontournables (15 entreprises privées et 15 services publics administratifs) intégrés sous forme d'icônes et de raccourcis système.
-- **Usage** : Tapez le nom du service dans votre terminal (ex: `leboncoin`, `parcoursup`, `bonjourlafuite`, `le-slip-francais`, `qwant`).
+31 sites incontournables (15 entreprises privées et 16 services publics administratifs) intégrés sous forme d'icônes et de raccourcis système.
+- **Usage** : Tapez le nom du service dans votre terminal (ex: `leboncoin`, `parcoursup`, `urssaf`, `bonjourlafuite`, `le-slip-francais`, `qwant`).
 - **Comportement** : La commande affiche un en-tête coloré avec la parodie Start-up Nation correspondante dans le terminal, puis lance le navigateur web par défaut (**Firefox** — car hélas, aucun de nos ingénieurs souverains n'a réussi à coder un navigateur digne de ce nom, nous obligeant à sous-traiter aux Américains).
 - **Menu Démarrer & Bureau** : Des lanceurs graphiques avec logos authentiques sont disponibles sur le Bureau et dans le Menu Démarrer (catégorie *Internet*) pour une transition numérique fluide.
 
