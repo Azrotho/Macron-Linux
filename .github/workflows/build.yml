@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        type: [server]
+        type: [server, standard, nvidia]
 
     steps:
       - name: "Checkout"
@@ -63,8 +63,8 @@ jobs:
 
       # Sur les tags uniquement : uploader sur la Release directement depuis ce job
       # → évite le transfert artifact inter-jobs (500 MB de quota dépassé par les ISOs KDE)
-      - name: "Publier sur GitHub Release (tags uniquement)"
-        if: github.ref_type == 'tag'
+      - name: "Publier sur GitHub Release (tags uniquement & serveur uniquement)"
+        if: github.ref_type == 'tag' && matrix.type == 'server'
         uses: softprops/action-gh-release@v2
         with:
           name: "MacronLinux ${{ github.ref_name }} — En mARCH! 🇫🇷"
