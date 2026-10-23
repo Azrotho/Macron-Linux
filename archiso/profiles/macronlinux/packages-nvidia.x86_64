@@ -69,3 +69,5 @@ nvidia-utils
 nvidia-settings
 libva-nvidia-driver
 
+vlc
+vlc-plugins-all
