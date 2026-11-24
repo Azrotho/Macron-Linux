@@ -245,7 +245,7 @@ Macron-Linux/
 
 ## 📜 Licence
 
-Ce projet est sous licence MIT. Voir [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE. Voir [LICENSE](LICENCE) pour plus de détails.
 
 ---
 
